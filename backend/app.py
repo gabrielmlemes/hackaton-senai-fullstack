@@ -4,21 +4,12 @@ from data import barbearias, servicos, agendamentos
 from datetime import datetime
 
 app = Flask(__name__)
-CORS(app)  # permite requests de qualquer origem localmente (ajuste em produção)
+CORS(app)  # permite requests de qualquer origem localmente (ajustar em produção)
 
 # GET /barbearias -> lista todas as barbearias
 @app.route("/barbearias", methods=["GET"])
 def listar_barbearias():
     return jsonify(barbearias), 200
-
-
-
-
-
-
-
-
-
 
 
 
@@ -39,8 +30,6 @@ def get_barbershop(id):
     # { ...barbeariaProps, services: [...] }
     response = {**barbearia, "services": services}
     return jsonify(response), 200
-
-
 
 
 

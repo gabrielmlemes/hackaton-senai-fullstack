@@ -26,7 +26,7 @@ import { useRouter } from "next/navigation"
 
 interface ServiceItemProps {
   service: BarbershopService
-  barbershop: Pick<Barbershop, "name">
+  barbershop: Pick<Barbershop, "id" | "name" | "imageUrl">
 }
 
 const TIME_LIST = [
@@ -171,7 +171,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
           <div className="relative max-h-[110px] min-h-[110px] min-w-[110px] max-w-[110px]">
             <Image
               alt={service.name}
-              src={service.imageUrl}
+              src={service.imageUrl ?? barbershop.imageUrl}
               fill
               className="rounded-lg object-cover"
             />

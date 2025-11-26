@@ -103,9 +103,267 @@ barbearias = [
 
 
 servicos = [
-    {"id": 1, "barbearia_id": 1, "name": "Corte de cabelo", "price": 40, "description": "Corte de cabelo masculino tradicional."},
-    {"id": 2, "barbearia_id": 2, "name": "Corte de cabelo", "price": 45}
+    # Barbearia 1
+    {
+        "id": 1,
+        "barbearia_id": 1,
+        "name": "Corte de cabelo",
+        "price": 40,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 2,
+        "barbearia_id": 1,
+        "name": "Hidratação capilar",
+        "price": 120,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 3,
+        "barbearia_id": 1,
+        "name": "Barba completa",
+        "price": 55,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+
+    # Barbearia 2
+    {
+        "id": 4,
+        "barbearia_id": 2,
+        "name": "Corte de cabelo",
+        "price": 40,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 5,
+        "barbearia_id": 2,
+        "name": "Hidratação capilar",
+        "price": 120,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 6,
+        "barbearia_id": 2,
+        "name": "Barba completa",
+        "price": 55,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+
+    # Barbearia 3
+    {
+        "id": 7,
+        "barbearia_id": 3,
+        "name": "Corte de cabelo",
+        "price": 40,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 8,
+        "barbearia_id": 3,
+        "name": "Hidratação capilar",
+        "price": 120,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 9,
+        "barbearia_id": 3,
+        "name": "Barba completa",
+        "price": 55,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+
+    # Barbearia 4
+    {
+        "id": 10,
+        "barbearia_id": 4,
+        "name": "Corte de cabelo",
+        "price": 40,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 11,
+        "barbearia_id": 4,
+        "name": "Hidratação capilar",
+        "price": 120,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 12,
+        "barbearia_id": 4,
+        "name": "Barba completa",
+        "price": 55,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+
+    # Barbearia 5
+    {
+        "id": 13,
+        "barbearia_id": 5,
+        "name": "Corte de cabelo",
+        "price": 40,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 14,
+        "barbearia_id": 5,
+        "name": "Hidratação capilar",
+        "price": 120,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 15,
+        "barbearia_id": 5,
+        "name": "Barba completa",
+        "price": 55,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+
+    # Barbearia 6
+    {
+        "id": 16,
+        "barbearia_id": 6,
+        "name": "Corte de cabelo",
+        "price": 40,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 17,
+        "barbearia_id": 6,
+        "name": "Hidratação capilar",
+        "price": 120,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 18,
+        "barbearia_id": 6,
+        "name": "Barba completa",
+        "price": 55,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+
+    # Barbearia 7
+    {
+        "id": 19,
+        "barbearia_id": 7,
+        "name": "Corte de cabelo",
+        "price": 40,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 20,
+        "barbearia_id": 7,
+        "name": "Hidratação capilar",
+        "price": 120,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 21,
+        "barbearia_id": 7,
+        "name": "Barba completa",
+        "price": 55,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+
+    # Barbearia 8
+    {
+        "id": 22,
+        "barbearia_id": 8,
+        "name": "Corte de cabelo",
+        "price": 40,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 23,
+        "barbearia_id": 8,
+        "name": "Hidratação capilar",
+        "price": 120,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 24,
+        "barbearia_id": 8,
+        "name": "Barba completa",
+        "price": 55,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+
+    # Barbearia 9
+    {
+        "id": 25,
+        "barbearia_id": 9,
+        "name": "Corte de cabelo",
+        "price": 40,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 26,
+        "barbearia_id": 9,
+        "name": "Hidratação capilar",
+        "price": 120,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 27,
+        "barbearia_id": 9,
+        "name": "Barba completa",
+        "price": 55,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+
+    # Barbearia 10
+    {
+        "id": 28,
+        "barbearia_id": 10,
+        "name": "Corte de cabelo",
+        "price": 40,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 29,
+        "barbearia_id": 10,
+        "name": "Hidratação capilar",
+        "price": 120,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    },
+    {
+        "id": 30,
+        "barbearia_id": 10,
+        "name": "Barba completa",
+        "price": 55,
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
+        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+    }
 ]
+
 
 # agendamentos mock (lista vazia inicialmente).
 # cada agendamento: id, usuario_id, barbearia_id, servico_id, data, hora
