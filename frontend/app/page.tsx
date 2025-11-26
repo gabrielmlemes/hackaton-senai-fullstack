@@ -1,7 +1,6 @@
 import Header from "./_components/header"
 import { Button } from "./_components/ui/button"
 import Image from "next/image"
-import { db } from "./_lib/prisma"
 import BarbershopItem from "./_components/barbershop-item"
 import { QuickSearchOptions } from "./_constants/search"
 import BookingItem from "./_components/booking-item"
@@ -12,7 +11,7 @@ import { authOptions } from "./_lib/auth"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import SwiperComponent from "./_components/swiper-component"
-import { getBarbershops } from "./_lib/barbearias"
+import { getBarbershops } from "./_actions/get-barbers"
 
 const Home = async () => {
   // chamando o banco de dados
@@ -28,27 +27,27 @@ const Home = async () => {
   const mostVisitedBarbershops = [...barbershops].sort((a, b) =>
     b.name.localeCompare(a.name)
   )
-  
-  const confirmedBookings = session?.user
-    ? await db.booking.findMany({
-        where: {
-          userId: (session?.user as any).id,
-          date: {
-            gte: new Date(),
-          },
-        },
-        include: {
-          service: {
-            include: {
-              barbershop: true,
-            },
-          },
-        },
-        orderBy: {
-          date: "asc",
-        },
-      })
-    : []
+
+  // const confirmedBookings = session?.user
+  //   ? await db.booking.findMany({
+  //       where: {
+  //         userId: (session?.user as any).id,
+  //         date: {
+  //           gte: new Date(),
+  //         },
+  //       },
+  //       include: {
+  //         service: {
+  //           include: {
+  //             barbershop: true,
+  //           },
+  //         },
+  //       },
+  //       orderBy: {
+  //         date: "asc",
+  //       },
+  //     })
+  //   : []
 
   return (
     <div>
@@ -82,25 +81,25 @@ const Home = async () => {
             </div>
 
             {/* AGENDAMENTOS */}
-            <div className="hidden w-full lg:flex lg:flex-col">
+            {/* <div className="hidden w-full lg:flex lg:flex-col">
               {confirmedBookings.length > 0 && (
                 <>
                   {/* AGENDAMENTO */}
-                  <h2 className="lg:mb-3 lg:mt-6 lg:text-xs lg:font-bold lg:uppercase">
-                    AGENDAMENTOS
-                  </h2>
+            {/* <h2 className="lg:mb-3 lg:mt-6 lg:text-xs lg:font-bold lg:uppercase">
+      AGENDAMENTOS
+      </h2>
 
-                  <div className="lg:flex lg:gap-3 lg:overflow-x-auto lg:[&::-webkit-scrollbar]:hidden">
-                    {confirmedBookings.map((booking) => (
-                      <BookingItem
-                        key={booking.id}
-                        booking={JSON.parse(JSON.stringify(booking))}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
+      <div className="lg:flex lg:gap-3 lg:overflow-x-auto lg:[&::-webkit-scrollbar]:hidden">
+    {confirmedBookings.map((booking) => (
+      <BookingItem
+      key={booking.id}
+      booking={JSON.parse(JSON.stringify(booking))}
+      />
+    ))}
+      </div>
+      </>
+    )}
+      </div> */}
           </div>
 
           {/* MAIS VISITADOS */}
@@ -113,59 +112,41 @@ const Home = async () => {
               <SwiperComponent barbershops={mostVisitedBarbershops} />
             </div>
           </div>
-        </div>
+        </div >
 
         {/* BUSCA RÁPIDA */}
-        <div className="mt-6 flex gap-3 overflow-x-scroll lg:hidden [&::-webkit-scrollbar]:hidden">
-          {QuickSearchOptions.map((option) => (
-            <Button
-              variant="secondary"
-              className="gap-2"
-              key={option.title}
-              asChild
-            >
-              <Link href={`/barbershops?service=${option.title}`}>
-                <Image
-                  src={option.imageUrl}
-                  alt={option.title}
-                  width={16}
-                  height={16}
-                />
-                {option.title}
-              </Link>
-            </Button>
-          ))}
-        </div>
+        < div className="mt-6 flex gap-3 overflow-x-scroll lg:hidden [&::-webkit-scrollbar]:hidden" >
+          {
+            QuickSearchOptions.map((option) => (
+              <Button
+                variant="secondary"
+                className="gap-2"
+                key={option.title}
+                asChild
+              >
+                <Link href={`/barbershops?service=${option.title}`}>
+                  <Image
+                    src={option.imageUrl}
+                    alt={option.title}
+                    width={16}
+                    height={16}
+                  />
+                  {option.title}
+                </Link>
+              </Button>
+            ))
+          }
+        </div >
 
-        {/* IMAGEM */}
-        <div className="relative mt-6 h-[150px] w-full lg:hidden">
+        {/* IMAGEM DO BANNER*/}
+        < div className="relative mt-6 h-[150px] w-full lg:hidden" >
           <Image
             src="/banner-01.png"
             fill
             className="rounded-xl object-cover"
             alt="Imagem Banner"
           />
-        </div>
-
-        <div className="lg:hidden">
-          {confirmedBookings.length > 0 && (
-            <>
-              {/* AGENDAMENTO */}
-              <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
-                AGENDAMENTOS
-              </h2>
-
-              <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-                {confirmedBookings.map((booking) => (
-                  <BookingItem
-                    key={booking.id}
-                    booking={JSON.parse(JSON.stringify(booking))}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+        </div >
 
         {/* RECOMENDADOS */}
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
@@ -188,8 +169,8 @@ const Home = async () => {
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />
           ))}
         </div>
-      </main>
-    </div>
+      </main >
+    </div >
   )
 }
 

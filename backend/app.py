@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from data import barbearias, servicos, agendamentos
@@ -12,18 +11,41 @@ CORS(app)  # permite requests de qualquer origem localmente (ajuste em produçã
 def listar_barbearias():
     return jsonify(barbearias), 200
 
-# GET /barbearias/<id> -> info da barbearia + serviços
-@app.route("/barbearias/<int:id>", methods=["GET"])
-def obter_barbearia(id):
-    barbearia = next((barbearia_item for barbearia_item in barbearias if barbearia_item["id"] == id), None)
+
+
+
+
+
+
+
+
+
+
+
+
+# --- NOVA ROTA compatível com o frontend Next ---
+# GET /barbershops/<id> -> retorna o objeto da barbearia com array "services"
+@app.route("/barbershops/<id>", methods=["GET"])
+def get_barbershop(id):
+    # busca por id como string (compatível com seu data.py atual)
+    barbearia = next((b for b in barbearias if str(b["id"]) == str(id)), None)
     if not barbearia:
         return jsonify({"erro": "Barbearia não encontrada"}), 404
 
-    servicos_da_barbearia = [servico for servico in servicos if servico["barbearia_id"] == id]
-    return jsonify({"barbearia": barbearia, "servicos": servicos_da_barbearia}), 200
+    # buscar serviços filtrando por barbearia_id (forçando string)
+    services = [s for s in servicos if str(s.get("barbearia_id")) == str(id)]
+
+    # retornar o objeto no formato que o Next espera:
+    # { ...barbeariaProps, services: [...] }
+    response = {**barbearia, "services": services}
+    return jsonify(response), 200
+
+
+
+
+
 
 # POST /agendamentos -> cria um agendamento
-# body JSON esperado: { servico_id, data }
 @app.route("/agendamentos", methods=["POST"])
 def criar_agendamento():
     payload = request.get_json(force=True)
@@ -84,8 +106,9 @@ def listar_meus_agendamentos(usuario_id):
     for agendamento in meus:
         barbearia = next((barbearia_item for barbearia_item in barbearias if barbearia_item["id"] == agendamento["barbearia_id"]), None)
         servico = next((servico_item for servico_item in servicos if servico_item["id"] == agendamento["servico_id"]), None)
-        agendamento["barbearia_nome"] = barbearia["nome"] if barbearia else None
-        agendamento["servico_nome"] = servico["nome"] if servico else None
+        # ajustar caso os campos existam em pt/ing nos mocks
+        agendamento["barbearia_nome"] = barbearia.get("name") or barbearia.get("nome") if barbearia else None
+        agendamento["servico_nome"] = servico.get("nome") if servico else None
     return jsonify(meus), 200
 
 # DELETE /agendamentos/<id> -> cancela/exclui agendamento
