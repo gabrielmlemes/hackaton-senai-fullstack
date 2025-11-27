@@ -3,11 +3,9 @@ import { Button } from "./_components/ui/button"
 import Image from "next/image"
 import BarbershopItem from "./_components/barbershop-item"
 import { QuickSearchOptions } from "./_constants/search"
-import BookingItem from "./_components/booking-item"
 import Search from "./_components/search"
 import Link from "next/link"
 import { getServerSession } from "next-auth"
-import { authOptions } from "./_lib/auth"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import SwiperComponent from "./_components/swiper-component"
@@ -15,7 +13,6 @@ import { getBarbershops } from "./_actions/get-barbers"
 
 const Home = async () => {
   // chamando o banco de dados
-  const session = await getServerSession(authOptions)
 
   const barbershops = await getBarbershops()
 
@@ -61,10 +58,7 @@ const Home = async () => {
             {/* User infos */}
             <div>
               <h2 className="text-xl font-bold">
-                Olá,{" "}
-                {session?.user
-                  ? session.user.name?.split(" ")[0]
-                  : "bem vindo(a)!"}
+                Olá, sejam bem-vindo ao Hackaton SENAI!
               </h2>
               {/* Dia */}
               <p>
@@ -154,7 +148,7 @@ const Home = async () => {
         </h2>
 
         <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
-          {barbershops.map((barbershop) => (
+          {barbershops.map((barbershop: any) => (
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />
           ))}
         </div>

@@ -3,19 +3,15 @@
 import Image from "next/image"
 import { Card, CardContent } from "./ui/card"
 import { Button } from "./ui/button"
-import { MenuIcon, CalendarIcon, LogInIcon, LogOutIcon } from "lucide-react"
+import { MenuIcon, CalendarIcon, LogInIcon, LogOutIcon, UserIcon } from "lucide-react"
 import { Sheet, SheetTrigger } from "./ui/sheet"
 import SidebarButton from "./sidebar"
 import Link from "next/link"
-import { useSession, signOut } from "next-auth/react"
 import { Avatar, AvatarImage } from "./ui/avatar"
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
-import SignInDialog from "./sign-in-dialog"
+
 
 const Header = () => {
-  const { data } = useSession()
 
-  const handleLogoutClick = () => signOut()
 
   return (
     <Card>
@@ -52,37 +48,23 @@ const Header = () => {
             </Button>
           </Link>
 
-          {data?.user ? (
+          
             <div className="flex items-center gap-3">
               <Avatar>
-                <AvatarImage src={data.user.image ?? ""} />
+                <AvatarImage/>
               </Avatar>
 
               <div className="flex items-center gap-5">
-                <p className="font-bold">{data.user.name}</p>
+                <p className="font-bold">Hackaton SENAI</p>
                 <Button
                   variant="ghost"
                   className="gap-2"
-                  onClick={handleLogoutClick}
                 >
                   <LogOutIcon size={18} />
                 </Button>
               </div>
             </div>
-          ) : (
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="default" className="gap-2">
-                  <LogInIcon size={20} />
-                  <p className="text-base">Login</p>
-                </Button>
-              </DialogTrigger>
-
-              <DialogContent className="w-[90%]">
-                <SignInDialog />
-              </DialogContent>
-            </Dialog>
-          )}
+          
         </div>
       </CardContent>
     </Card>

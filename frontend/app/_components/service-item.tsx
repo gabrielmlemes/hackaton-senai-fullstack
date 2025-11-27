@@ -1,6 +1,5 @@
 "use client"
 
-import { Barbershop, BarbershopService, Booking } from "@prisma/client"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import { Card, CardContent } from "./ui/card"
@@ -13,21 +12,14 @@ import {
 } from "./ui/sheet"
 import { Calendar } from "./ui/calendar"
 import { ptBR } from "date-fns/locale"
-import { useEffect, useMemo, useState } from "react"
+import {useMemo, useState } from "react"
 import { isPast, isToday, set } from "date-fns"
 import { createBooking } from "../_actions/create-booking"
-import { useSession } from "next-auth/react"
 import { toast } from "sonner"
-import { getBookings } from "../_actions/get-bookings"
-import { Dialog, DialogContent } from "./ui/dialog"
-import SignInDialog from "./sign-in-dialog"
 import BookingSummary from "./booking-summary"
 import { useRouter } from "next/navigation"
 
-interface ServiceItemProps {
-  service: BarbershopService
-  barbershop: Pick<Barbershop, "id" | "name" | "imageUrl">
-}
+
 
 const TIME_LIST = [
   "08:00",
@@ -54,7 +46,7 @@ const TIME_LIST = [
 ]
 
 interface GetTimeListProps {
-  bookings: Booking[]
+  bookings: any[]
   selectedDay: Date
 }
 
@@ -80,28 +72,15 @@ const getTimeList = ({ bookings, selectedDay }: GetTimeListProps) => {
   })
 }
 
-const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
+const ServiceItem = ({ service, barbershop }: any) => {
   const router = useRouter()
-  const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false)
-  const { data } = useSession()
   const [selectedDay, setSelectedDay] = useState<Date | undefined>(undefined)
   const [selectedTime, setSelectedTime] = useState<string | undefined>(
     undefined,
   )
-  const [dayBookings, setDayBookings] = useState<Booking[]>([])
+  const [dayBookings, setDayBookings] = useState([])
   const [bookingSheetIsOpen, setBookingSheetIsOpen] = useState(false)
 
-  useEffect(() => {
-    const fetch = async () => {
-      if (!selectedDay) return
-      const bookings = await getBookings({
-        date: selectedDay,
-        serviceId: service.id,
-      })
-      setDayBookings(bookings)
-    }
-    fetch()
-  }, [selectedDay, service.id])
 
   const selecteDate = useMemo(() => {
     if (!selectedDay || !selectedTime) return
@@ -113,10 +92,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
   }, [selectedDay, selectedTime])
 
   const handleBookingClick = () => {
-    if (data?.user) {
-      return setBookingSheetIsOpen(true)
-    }
-    return setSignInDialogIsOpen(true)
+    return setBookingSheetIsOpen(true)
   }
 
   const handleBookingSheetOpenChange = () => {
@@ -140,6 +116,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
 
       await createBooking({
         serviceId: service.id,
+        barbershopId: barbershop.id,
         date: selecteDate,
       })
       handleBookingSheetOpenChange()
@@ -267,14 +244,6 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
         </CardContent>
       </Card>
 
-      <Dialog
-        open={signInDialogIsOpen}
-        onOpenChange={(open) => setSignInDialogIsOpen(open)}
-      >
-        <DialogContent className="w-[90%]">
-          <SignInDialog />
-        </DialogContent>
-      </Dialog>
     </>
   )
 }
