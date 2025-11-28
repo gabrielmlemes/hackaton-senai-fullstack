@@ -1,6 +1,6 @@
-// "use server"
+"use server"
 
-// import { revalidatePath } from "next/cache"
+import { revalidatePath } from "next/cache"
 // import { db } from "../_lib/prisma"
 
 // export const deleteBooking = async (bookingId: string) => {
@@ -11,3 +11,13 @@
 //   })
 //   revalidatePath("/bookings")
 // }
+
+interface DeleteBookingParams {
+  bookingId: string
+}
+export const deleteBooking = async (params: DeleteBookingParams) => {
+  const response = await fetch(`http://localhost:5000/agendamentos/${params.bookingId}`, {
+    method: "DELETE",
+  })
+  const result = await response.json()
+  if (!response.ok) throw new Error(result.erro)}

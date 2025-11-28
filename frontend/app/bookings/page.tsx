@@ -5,7 +5,7 @@ import BookingItem from "../_components/booking-item"
 const MOCK_USER_ID = 1
 
 async function getMyBookings() {
-  const res = await fetch(`http://127.0.0.1:5000/meus-agendamentos/${MOCK_USER_ID}`, {
+  const res = await fetch(`http://127.0.0.1:5000/meus-agendamentos`, {
     cache: "no-store",
   })
 

@@ -49,7 +49,8 @@ def criar_agendamento():
     data_ag = payload["data"]
     hora_ag = payload["hora"]
 
-    novo_horario = datetime.strptime(f"{data_ag} {hora_ag}", "%Y-%m-%d %H:%M")
+    # verificar código 
+    novo_horario = datetime.strptime(f"{data_ag} {hora_ag}", "%Y-%m-%d %H:%M") 
 
     agendamentos_existentes = [
         agendamento for agendamento in agendamentos
@@ -83,29 +84,35 @@ def criar_agendamento():
 
 # -------------------------------------------------------------------------
 
-# GET /meus-agendamentos/<usuario_id> -> lista só os agendamentos do usuário
-@app.route("/meus-agendamentos/<int:usuario_id>", methods=["GET"])
-def listar_meus_agendamentos(usuario_id):
-    meus = [
-        ag.copy()
-        for ag in agendamentos
-        if ag["usuario_id"] == usuario_id
-    ]
+
+# GET /meus-agendamentos -> lista só os agendamentos do usuário mockado (sem precisar passar id)
+@app.route("/meus-agendamentos", methods=["GET"])
+def listar_meus_agendamentos():
+    usuario_id = USUARIO_FAKE_ID
+
+    # copiar agendamentos do usuário
+    meus = [ag.copy() for ag in agendamentos if ag["usuario_id"] == usuario_id]
 
     for ag in meus:
-        barbearia = next(
-            (b for b in barbearias if b["id"] == ag["barbearia_id"]),
-            None
-        )
-        servico = next(
-            (s for s in servicos if s["id"] == ag["servico_id"]),
-            None
-        )
+        # usar str(...) nas comparações para evitar mismatch entre "1" e 1
+        barbearia = next((b for b in barbearias if str(b.get("id")) == str(ag.get("barbearia_id"))), None)
+        servico = next((s for s in servicos if str(s.get("id")) == str(ag.get("servico_id"))), None)
 
-        ag["barbearia_nome"] = (
-            barbearia.get("nome") or barbearia.get("name") if barbearia else None
-        )
-        ag["servico_nome"] = servico.get("nome") if servico else None
+        # preencher campos úteis para o frontend
+        ag["barbearia_nome"] = (barbearia.get("name") or barbearia.get("nome")) if barbearia else None
+        ag["barbearia_address"] = barbearia.get("address") if barbearia else None
+        ag["barbearia_image"] = barbearia.get("imageUrl") if barbearia else None
+
+        # serviços podem ter campos em 'name' ou 'nome' — pegar ambos
+        ag["servico_nome"] = servico.get("name") or servico.get("nome") if servico else None
+        ag["servico_price"] = servico.get("price") if servico else None
+        ag["servico_image"] = servico.get("imageUrl") if servico else None
+
+        # opcional: converter data/hora para facilitar (não obrigatório)
+        # ag["datetime_iso"] = f"{ag['data']}T{ag['hora']}:00"
+
+        # debug rápido no console
+        print("ENRICHED:", ag)
 
     return jsonify(meus), 200
 
@@ -120,6 +127,11 @@ def cancelar_agendamento(id):
         return jsonify({"erro": "Agendamento não encontrado"}), 404
     agendamentos.remove(agendamento)
     return jsonify({"mensagem": "Agendamento cancelado com sucesso"}), 200
+
+
+# -------------------------------------------------------------------------
+
+
 
 if __name__ == "__main__":
     # porta 5000 por padrão. Para mudar, troque host/port.

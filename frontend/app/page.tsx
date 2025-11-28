@@ -58,7 +58,7 @@ const Home = async () => {
             {/* User infos */}
             <div>
               <h2 className="text-xl font-bold">
-                Olá, sejam bem-vindo ao Hackaton SENAI!
+                Olá, sejam bem-vindos ao <strong>Hackaton - SENAI!</strong>
               </h2>
               {/* Dia */}
               <p>

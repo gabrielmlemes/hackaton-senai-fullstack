@@ -117,8 +117,8 @@ servicos = [
         "barbearia_id": 1,
         "name": "Hidratação capilar",
         "price": 120,
-        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764330274/hidratacao_tw7iqp.png",
+        "description": "Tratamento profundo que repõe água, nutre e revitaliza o cabelo, deixando-o mais saudável, leve e alinhado."
     },
     {
         "id": 3,
@@ -126,7 +126,7 @@ servicos = [
         "name": "Barba completa",
         "price": 55,
         "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "description": "Tratamento completo para deixar sua barba mais uniforme, hidratada e com contornos impecáveis."
     },
 
     # Barbearia 2
@@ -143,8 +143,8 @@ servicos = [
         "barbearia_id": 2,
         "name": "Hidratação capilar",
         "price": 120,
-        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764330274/hidratacao_tw7iqp.png",
+        "description": "Tratamento profundo que repõe água, nutre e revitaliza o cabelo, deixando-o mais saudável, leve e alinhado."
     },
     {
         "id": 6,
@@ -152,7 +152,7 @@ servicos = [
         "name": "Barba completa",
         "price": 55,
         "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "description": "Tratamento completo para deixar sua barba mais uniforme, hidratada e com contornos impecáveis."
     },
 
     # Barbearia 3
@@ -169,8 +169,8 @@ servicos = [
         "barbearia_id": 3,
         "name": "Hidratação capilar",
         "price": 120,
-        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764330274/hidratacao_tw7iqp.png",
+        "description": "Tratamento profundo que repõe água, nutre e revitaliza o cabelo, deixando-o mais saudável, leve e alinhado."
     },
     {
         "id": 9,
@@ -178,7 +178,7 @@ servicos = [
         "name": "Barba completa",
         "price": 55,
         "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "description": "Tratamento completo para deixar sua barba mais uniforme, hidratada e com contornos impecáveis."
     },
 
     # Barbearia 4
@@ -195,8 +195,8 @@ servicos = [
         "barbearia_id": 4,
         "name": "Hidratação capilar",
         "price": 120,
-        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764330274/hidratacao_tw7iqp.png",
+        "description": "Tratamento profundo que repõe água, nutre e revitaliza o cabelo, deixando-o mais saudável, leve e alinhado."
     },
     {
         "id": 12,
@@ -204,7 +204,7 @@ servicos = [
         "name": "Barba completa",
         "price": 55,
         "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "description": "Tratamento completo para deixar sua barba mais uniforme, hidratada e com contornos impecáveis."
     },
 
     # Barbearia 5
@@ -221,8 +221,8 @@ servicos = [
         "barbearia_id": 5,
         "name": "Hidratação capilar",
         "price": 120,
-        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764330274/hidratacao_tw7iqp.png",
+        "description": "Tratamento profundo que repõe água, nutre e revitaliza o cabelo, deixando-o mais saudável, leve e alinhado."
     },
     {
         "id": 15,
@@ -230,7 +230,7 @@ servicos = [
         "name": "Barba completa",
         "price": 55,
         "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "description": "Tratamento completo para deixar sua barba mais uniforme, hidratada e com contornos impecáveis."
     },
 
     # Barbearia 6
@@ -247,8 +247,8 @@ servicos = [
         "barbearia_id": 6,
         "name": "Hidratação capilar",
         "price": 120,
-        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764330274/hidratacao_tw7iqp.png",
+        "description": "Tratamento profundo que repõe água, nutre e revitaliza o cabelo, deixando-o mais saudável, leve e alinhado."
     },
     {
         "id": 18,
@@ -256,7 +256,7 @@ servicos = [
         "name": "Barba completa",
         "price": 55,
         "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "description": "Tratamento completo para deixar sua barba mais uniforme, hidratada e com contornos impecáveis."
     },
 
     # Barbearia 7
@@ -273,8 +273,8 @@ servicos = [
         "barbearia_id": 7,
         "name": "Hidratação capilar",
         "price": 120,
-        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764330274/hidratacao_tw7iqp.png",
+        "description": "Tratamento profundo que repõe água, nutre e revitaliza o cabelo, deixando-o mais saudável, leve e alinhado."
     },
     {
         "id": 21,
@@ -282,7 +282,7 @@ servicos = [
         "name": "Barba completa",
         "price": 55,
         "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "description": "Tratamento completo para deixar sua barba mais uniforme, hidratada e com contornos impecáveis."
     },
 
     # Barbearia 8
@@ -299,8 +299,8 @@ servicos = [
         "barbearia_id": 8,
         "name": "Hidratação capilar",
         "price": 120,
-        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764330274/hidratacao_tw7iqp.png",
+        "description": "Tratamento profundo que repõe água, nutre e revitaliza o cabelo, deixando-o mais saudável, leve e alinhado."
     },
     {
         "id": 24,
@@ -308,7 +308,7 @@ servicos = [
         "name": "Barba completa",
         "price": 55,
         "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "description": "Tratamento completo para deixar sua barba mais uniforme, hidratada e com contornos impecáveis."
     },
 
     # Barbearia 9
@@ -325,8 +325,8 @@ servicos = [
         "barbearia_id": 9,
         "name": "Hidratação capilar",
         "price": 120,
-        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764330274/hidratacao_tw7iqp.png",
+        "description": "Tratamento profundo que repõe água, nutre e revitaliza o cabelo, deixando-o mais saudável, leve e alinhado."
     },
     {
         "id": 27,
@@ -334,7 +334,7 @@ servicos = [
         "name": "Barba completa",
         "price": 55,
         "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "description": "Tratamento completo para deixar sua barba mais uniforme, hidratada e com contornos impecáveis."
     },
 
     # Barbearia 10
@@ -351,8 +351,8 @@ servicos = [
         "barbearia_id": 10,
         "name": "Hidratação capilar",
         "price": 120,
-        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764165127/corte_pj6gdh.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764330274/hidratacao_tw7iqp.png",
+        "description": "Tratamento profundo que repõe água, nutre e revitaliza o cabelo, deixando-o mais saudável, leve e alinhado."
     },
     {
         "id": 30,
@@ -360,7 +360,7 @@ servicos = [
         "name": "Barba completa",
         "price": 55,
         "imageUrl": "https://res.cloudinary.com/dvslejltv/image/upload/v1764168275/barba_x1qm9z.png",
-        "description": "Corte de cabelo moderno e estiloso para realçar sua personalidade."
+        "description": "Tratamento completo para deixar sua barba mais uniforme, hidratada e com contornos impecáveis."
     }
 ]
 

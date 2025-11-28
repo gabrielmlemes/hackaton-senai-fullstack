@@ -20,6 +20,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
   
   const BASE_URL = process.env.BACKEND_API_URL ?? "http://localhost:5000"
   const res = await fetch(`${BASE_URL}/barbershops/${params.id}`, {
+    cache: "no-store",
     headers: { Accept: "application/json" },
   })
 
@@ -108,7 +109,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
           </h3>
 
           <div className="flex flex-col gap-3 md:grid md:grid-cols-2 lg:grid lg:grid-cols-3">
-            {barbershop.services.map((service) => (
+            {barbershop.services.map((service: any) => (
               <ServiceItem
                 service={JSON.parse(JSON.stringify(service))}
                 barbershop={JSON.parse(JSON.stringify(barbershop))}
@@ -121,7 +122,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
           <div className="space-y-3 p-5">
             <h3 className="text-sm font-bold text-gray-400">CONTATO</h3>
 
-            {barbershop.phones.map((phone) => (
+            {barbershop.phones.map((phone: any) => (
               <PhoneItem phone={phone} key={phone} />
             ))}
           </div>

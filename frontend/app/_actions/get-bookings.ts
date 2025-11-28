@@ -1,7 +1,7 @@
 "use server"
 
 export const getBookings = async () => {
-  const response = await fetch("http://localhost:5000//meus-agendamentos", {
+  const response = await fetch("http://localhost:5000/meus-agendamentos", {
     cache: "no-store",
   })
 
