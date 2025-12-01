@@ -58,7 +58,7 @@ const Home = async () => {
             {/* User infos */}
             <div>
               <h2 className="text-xl font-bold">
-                Olá, sejam bem-vindos ao <strong>Hackaton - SENAI!</strong>
+                Olá, sejam bem-vindos ao <strong className="text-primary">Hackaton - SENAI!</strong>
               </h2>
               {/* Dia */}
               <p>
@@ -135,7 +135,7 @@ const Home = async () => {
         {/* IMAGEM DO BANNER*/}
         < div className="relative mt-6 h-[150px] w-full lg:hidden" >
           <Image
-            src="/banner-01.png"
+            src="/logoSenai.png"
             fill
             className="rounded-xl object-cover"
             alt="Imagem Banner"

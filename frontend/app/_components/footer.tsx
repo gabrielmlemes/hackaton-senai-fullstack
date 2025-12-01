@@ -7,7 +7,7 @@ const Footer = () => {
         <CardContent className="px-5 py-6">
           <p className="text-sm text-gray-400">
             ©️ 2025 Copyright{" "}
-            <span className="font-semibold">• Hakacton SENAI - Gabriel Lemes, Robson Oliveira, Rodrigo Augusto, Carlito</span>
+            <span className="font-semibold">• Hakacton SENAI - Gabriel Lemes, Robson Oliveira, Rodrigo Augusto, Carlos Alfonso</span>
           </p>
         </CardContent>
       </Card>

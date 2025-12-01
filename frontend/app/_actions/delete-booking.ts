@@ -19,5 +19,6 @@ export const deleteBooking = async (params: DeleteBookingParams) => {
   const response = await fetch(`http://localhost:5000/agendamentos/${params.bookingId}`, {
     method: "DELETE",
   })
+  revalidatePath("/bookings")
   const result = await response.json()
-  if (!response.ok) throw new Error(result.erro)}
+  return result}

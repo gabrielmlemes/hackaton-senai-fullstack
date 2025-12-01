@@ -17,19 +17,24 @@ import {
 import { Button } from "./ui/button"
 import Image from "next/image"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog"
+import { deleteBooking } from "../_actions/delete-booking"
+import { useRouter } from "next/navigation"
+import { toast } from "sonner"
 
 
 interface BookingItemProps {
   booking: any
 }
 
-function handleCancelBooking() {
-  // Lógica para cancelar o agendamento
-  console.log("Agendamento cancelado")
-}
 
 const BookingItem = ({ booking }: BookingItemProps) => {
+  function handleCancelBooking({BookingId}: {BookingId: string}) {
+    deleteBooking({bookingId: BookingId})
+    router.refresh()
+    toast.success("Agendamento cancelado com sucesso!")
+  }
   const [isSheetOpen, setIsSheetOpen] = useState(false)
+  const router = useRouter()
 
   // Criar um Date real com data + hora
   const bookingDate = new Date(`${booking.data}T${booking.hora}:00`)
@@ -152,7 +157,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                     <DialogClose className="w-full">
                       <Button
                         variant="destructive"
-                        onClick={handleCancelBooking}
+                        onClick={()=> handleCancelBooking({BookingId: booking.id})}
                         className="w-full"
                       >
                         Confirmar

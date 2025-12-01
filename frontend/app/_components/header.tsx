@@ -8,8 +8,6 @@ import { Sheet, SheetTrigger } from "./ui/sheet"
 import SidebarButton from "./sidebar"
 import Link from "next/link"
 import { Avatar, AvatarImage } from "./ui/avatar"
-
-
 const Header = () => {
 
 
@@ -18,11 +16,11 @@ const Header = () => {
       <CardContent className="flex flex-row items-center justify-between p-5 lg:px-14">
         <Link href="/">
           <Image
-            src="/logo.png"
+            src="/logoSenai.png"
             height={18}
             width={120}
-            className="lg:w-40"
-            alt="FSW BARBER"
+            className="lg:w-30"
+            alt="SENAI Barber Shop Logo"
           />
         </Link>
 
