@@ -9,9 +9,8 @@ interface CreateBookingParams {
 }
 
 export const createBooking = async (params: CreateBookingParams) => {
-  const iso = params.date.toISOString()
-  const data = iso.split("T")[0]
-  const hora = iso.split("T")[1].slice(0, 5)
+  const data = params.date.toISOString().split("T")[0]
+  const hora = params.date.toTimeString().slice(0, 5)
 
   const payload = {
     barbearia_id: Number(params.barbershopId),
