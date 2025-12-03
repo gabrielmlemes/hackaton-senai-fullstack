@@ -5,14 +5,11 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import { Navigation, Pagination, Mousewheel, Autoplay } from "swiper/modules"
-import { Barbershop } from "@prisma/client"
 import BarbershopItem from "./barbershop-item"
 
-interface SwiperComponentProps {
-  barbershops: Barbershop[]
-}
 
-const SwiperComponent = ({ barbershops }: SwiperComponentProps) => {
+
+const SwiperComponent = ({ barbershops }: any) => {
   return (
     <Swiper
       slidesPerView={3.2}
@@ -49,7 +46,7 @@ const SwiperComponent = ({ barbershops }: SwiperComponentProps) => {
         },
       }}
     >
-      {barbershops.map((shop) => (
+      {barbershops.map((shop: any) => (
         <SwiperSlide key={shop.id}>
           <BarbershopItem barbershop={shop} />
         </SwiperSlide>

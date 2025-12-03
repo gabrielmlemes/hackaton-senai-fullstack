@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Card, CardContent } from "./ui/card"
 import { Button } from "./ui/button"
-import { MenuIcon, CalendarIcon, LogInIcon, LogOutIcon, UserIcon } from "lucide-react"
+import { MenuIcon, CalendarIcon, LogOutIcon} from "lucide-react"
 import { Sheet, SheetTrigger } from "./ui/sheet"
 import SidebarButton from "./sidebar"
 import Link from "next/link"

@@ -16,7 +16,7 @@ interface DeleteBookingParams {
   bookingId: string
 }
 export const deleteBooking = async (params: DeleteBookingParams) => {
-  const response = await fetch(`http://localhost:5000/agendamentos/${params.bookingId}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/agendamentos/${params.bookingId}`, {
     method: "DELETE",
   })
   revalidatePath("/bookings")

@@ -18,7 +18,7 @@ interface BarbershopPageProps {
 const BarbershopPage = async ({ params }: BarbershopPageProps) => {
   //chamar o banco de dados  
   
-  const BASE_URL = process.env.BACKEND_API_URL ?? "http://localhost:5000"
+  const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000"
   const res = await fetch(`${BASE_URL}/barbershops/${params.id}`, {
     cache: "no-store",
     headers: { Accept: "application/json" },

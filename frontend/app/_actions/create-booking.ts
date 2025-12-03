@@ -19,7 +19,7 @@ export const createBooking = async (params: CreateBookingParams) => {
     hora
   }
 
-  const response = await fetch("http://localhost:5000/agendamentos", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/agendamentos`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)

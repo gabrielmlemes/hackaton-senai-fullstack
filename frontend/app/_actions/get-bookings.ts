@@ -1,7 +1,7 @@
 "use server"
 
 export const getBookings = async () => {
-  const response = await fetch("http://localhost:5000/meus-agendamentos", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/meus-agendamentos`, {
     cache: "no-store",
   })
 
