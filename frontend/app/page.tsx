@@ -70,9 +70,9 @@ const Home = async () => {
             </div>
 
             {/* INPUT DE BUSCA */}
-            <div className="mt-6 lg:w-full">
+            {/* <div className="mt-6 lg:w-full">
               <Search />
-            </div>
+            </div> */}
 
             {/* AGENDAMENTOS */}
             {/* <div className="hidden w-full lg:flex lg:flex-col">
@@ -109,7 +109,7 @@ const Home = async () => {
         </div >
 
         {/* BUSCA RÁPIDA */}
-        < div className="mt-6 flex gap-3 overflow-x-scroll lg:hidden [&::-webkit-scrollbar]:hidden" >
+        {/* < div className="mt-6 flex gap-3 overflow-x-scroll lg:hidden [&::-webkit-scrollbar]:hidden" >
           {
             QuickSearchOptions.map((option) => (
               <Button
@@ -130,7 +130,7 @@ const Home = async () => {
               </Button>
             ))
           }
-        </div >
+        </div > */}
 
         {/* IMAGEM DO BANNER*/}
         < div className="relative mt-6 h-[150px] w-full lg:hidden" >
