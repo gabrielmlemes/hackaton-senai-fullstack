@@ -7,15 +7,10 @@
     "build": "next build --no-lint",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky && prisma generate"
-  },
-  "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "prepare": "husky install"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.4.2",
     "@hookform/resolvers": "^3.9.0",
-    "@prisma/client": "^5.17.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-label": "^2.1.0",
@@ -49,7 +44,6 @@
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
-    "prisma": "^5.17.0",
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5"
