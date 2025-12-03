@@ -1,23 +1,12 @@
 import Header from "../_components/header"
 import BookingItem from "../_components/booking-item"
+import { getBookings } from "../_actions/get-bookings"
 
 // usuário mockado
 const MOCK_USER_ID = 1
 
-async function getMyBookings() {
-  const res = await fetch(`http://127.0.0.1:5000/meus-agendamentos`, {
-    cache: "no-store",
-  })
-
-  if (!res.ok) {
-    throw new Error("Erro ao buscar agendamentos")
-  }
-
-  return res.json()
-}
-
 const Bookings = async () => {
-  const bookings = await getMyBookings()
+  const bookings = await getBookings()
   const now = new Date()
 
   const confirmedBookings = bookings.filter((booking: any) => {
