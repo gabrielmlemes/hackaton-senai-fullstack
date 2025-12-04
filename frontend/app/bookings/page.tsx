@@ -2,19 +2,19 @@ import Header from "../_components/header"
 import BookingItem from "../_components/booking-item"
 import { getBookings } from "../_actions/get-bookings"
 
-// Função para montar a data/hora sem aplicar conversão de UTC
+// ===============================
+// ✅ PARSE COM GAMBIARRA (-3 HORAS)
+// ===============================
 function parseBookingDate(booking: any) {
   const [year, month, day] = booking.data.split("-").map(Number)
   const [hours, minutes] = booking.hora.split(":").map(Number)
 
-  // Monta ISO local (sem Z = sem UTC)
-  const isoString = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(
-    2,
-    "0"
-  )}T${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:00`
+  const date = new Date(year, month - 1, day, hours, minutes)
 
-  // Agora o Date interpreta como horário local corretamente
-  return new Date(isoString)
+  // Força -3h
+  date.setHours(date.getHours() - 3)
+
+  return date
 }
 
 const Bookings = async () => {

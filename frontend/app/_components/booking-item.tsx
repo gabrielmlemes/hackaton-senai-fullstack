@@ -34,6 +34,14 @@ interface BookingItemProps {
   booking: any
 }
 
+// ===============================
+// ✅ FUNÇÃO GERAL DE AJUSTE (-3H)
+// ===============================
+function fixTimezone(date: Date) {
+  date.setHours(date.getHours() - 3)
+  return date
+}
+
 const BookingItem = ({ booking }: BookingItemProps) => {
   const router = useRouter()
   const [isSheetOpen, setIsSheetOpen] = useState(false)
@@ -44,14 +52,14 @@ const BookingItem = ({ booking }: BookingItemProps) => {
     toast.success("Agendamento cancelado com sucesso!")
   }
 
-  // ============================================
-  // ✅ CORREÇÃO DO FUSO (SEM +3 HORAS)
-  // ============================================
+  // ===============================
+  //  DATA CORRETA (SEM UTC + -3H)
+  // ===============================
   const [year, month, day] = booking.data.split("-").map(Number)
   const [hour, minute] = booking.hora.split(":").map(Number)
 
-  // Cria a data LOCAL, sem UTC
-  const bookingDate = new Date(year, month - 1, day, hour, minute)
+  let bookingDate = new Date(year, month - 1, day, hour, minute)
+  bookingDate = fixTimezone(bookingDate)
 
   const isConfirmed = isFuture(bookingDate)
 
@@ -60,6 +68,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
       <SheetTrigger className="w-full min-w-[90%]">
         <Card className="min-w-[90%]">
           <CardContent className="flex justify-between p-0">
+            
             {/* ESQUERDA */}
             <div className="flex flex-col gap-2 py-5 pl-5 text-start">
               <Badge
@@ -144,7 +153,6 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             </Button>
           </SheetClose>
 
-          {/* CANCELAR */}
           {isConfirmed && (
             <Dialog>
               <DialogTrigger className="w-full">
