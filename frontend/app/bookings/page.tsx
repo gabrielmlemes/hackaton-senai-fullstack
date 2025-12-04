@@ -2,19 +2,23 @@ import Header from "../_components/header"
 import BookingItem from "../_components/booking-item"
 import { getBookings } from "../_actions/get-bookings"
 
-// usuário mockado
-const MOCK_USER_ID = 1
+// Função para montar a data/hora sem UTC
+function parseBookingDate(booking: any) {
+  const [year, month, day] = booking.data.split("-").map(Number)
+  const [hours, minutes] = booking.hora.split(":").map(Number)
+  return new Date(year, month - 1, day, hours, minutes)
+}
 
 const Bookings = async () => {
   const bookings = await getBookings()
   const now = new Date()
 
   const confirmedBookings = bookings.filter((booking: any) => {
-    return new Date(booking.data) >= now
+    return parseBookingDate(booking) >= now
   })
 
   const concludedBookings = bookings.filter((booking: any) => {
-    return new Date(booking.data) < now
+    return parseBookingDate(booking) < now
   })
 
   return (
