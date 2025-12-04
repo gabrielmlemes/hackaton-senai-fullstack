@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Card, CardContent } from "./ui/card"
 import { Button } from "./ui/button"
-import { MenuIcon, CalendarIcon, LogOutIcon} from "lucide-react"
+import { MenuIcon, CalendarIcon} from "lucide-react"
 import { Sheet, SheetTrigger } from "./ui/sheet"
 import SidebarButton from "./sidebar"
 import Link from "next/link"
@@ -52,14 +52,8 @@ const Header = () => {
                 <AvatarImage/>
               </Avatar>
 
-              <div className="flex items-center gap-5">
+              <div className="flex items-center">
                 <p className="font-bold">Hackaton SENAI</p>
-                <Button
-                  variant="ghost"
-                  className="gap-2"
-                >
-                  <LogOutIcon size={18} />
-                </Button>
               </div>
             </div>
           
