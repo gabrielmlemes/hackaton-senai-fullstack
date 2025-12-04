@@ -16,28 +16,43 @@ import {
 } from "./ui/sheet"
 import { Button } from "./ui/button"
 import Image from "next/image"
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from "./ui/dialog"
 import { deleteBooking } from "../_actions/delete-booking"
 import { useRouter } from "next/navigation"
 import { toast } from "sonner"
-
 
 interface BookingItemProps {
   booking: any
 }
 
-
 const BookingItem = ({ booking }: BookingItemProps) => {
-  function handleCancelBooking({BookingId}: {BookingId: string}) {
-    deleteBooking({bookingId: BookingId})
+  const router = useRouter()
+  const [isSheetOpen, setIsSheetOpen] = useState(false)
+
+  function handleCancelBooking({ BookingId }: { BookingId: string }) {
+    deleteBooking({ bookingId: BookingId })
     router.refresh()
     toast.success("Agendamento cancelado com sucesso!")
   }
-  const [isSheetOpen, setIsSheetOpen] = useState(false)
-  const router = useRouter()
 
-  // Criar um Date real com data + hora
-  const bookingDate = new Date(`${booking.data}T${booking.hora}:00`)
+  // ============================================
+  // ✅ CORREÇÃO DO FUSO (SEM +3 HORAS)
+  // ============================================
+  const [year, month, day] = booking.data.split("-").map(Number)
+  const [hour, minute] = booking.hora.split(":").map(Number)
+
+  // Cria a data LOCAL, sem UTC
+  const bookingDate = new Date(year, month - 1, day, hour, minute)
+
   const isConfirmed = isFuture(bookingDate)
 
   return (
@@ -54,10 +69,8 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                 {isConfirmed ? "Confirmado" : "Finalizado"}
               </Badge>
 
-              {/* Nome do serviço */}
               <h3 className="font-semibold">{booking.servico_nome}</h3>
 
-              {/* Nome da barbearia */}
               <p className="text-sm">{booking.barbearia_nome}</p>
             </div>
 
@@ -66,7 +79,9 @@ const BookingItem = ({ booking }: BookingItemProps) => {
               <p className="text-sm capitalize">
                 {format(bookingDate, "MMMM", { locale: ptBR })}
               </p>
-              <p className="text-2xl">{format(bookingDate, "dd", { locale: ptBR })}</p>
+              <p className="text-2xl">
+                {format(bookingDate, "dd", { locale: ptBR })}
+              </p>
               <p className="text-sm">
                 {format(bookingDate, "HH:mm", { locale: ptBR })}
               </p>
@@ -75,14 +90,14 @@ const BookingItem = ({ booking }: BookingItemProps) => {
         </Card>
       </SheetTrigger>
 
-      {/* DETALHES DO AGENDAMENTO */}
+      {/* DETALHES */}
       <SheetContent className="w-[90%] flex flex-col h-full">
         <div className="flex-1 overflow-y-auto">
           <SheetHeader className="border-b pb-5">
             <SheetTitle className="text-left">Informações da Reserva</SheetTitle>
           </SheetHeader>
 
-          {/* MAPA FAKE */}
+          {/* MAPA */}
           <div className="relative mt-6 flex h-[180px] w-full items-end">
             <Image
               src="/map.png"
@@ -122,7 +137,6 @@ const BookingItem = ({ booking }: BookingItemProps) => {
           </div>
         </div>
 
-        {/* BOTÕES */}
         <SheetFooter>
           <SheetClose asChild>
             <Button variant="outline" className="w-full">
@@ -130,43 +144,45 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             </Button>
           </SheetClose>
 
-          {/* BOTÃO CANCELAR RESERVA */}
-            {isConfirmed && (
-              <Dialog>
-                <DialogTrigger className="w-full">
-                  <Button className="w-full" variant="destructive">
-                    Cancelar reserva
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="w-[90%]">
-                  <DialogHeader>
-                    <DialogTitle>
-                      Você deseja cancelar seu agendamento?
-                    </DialogTitle>
-                    <DialogDescription>
-                      Ao cancelar, você perderá sua reserva e não poderá
-                      recupera-lá. Essa ação é irreversível!
-                    </DialogDescription>
-                  </DialogHeader>
-                  <DialogFooter className="flex flex-row gap-3">
-                    <DialogClose asChild>
-                      <Button variant="secondary" className="w-full">
-                        Voltar
-                      </Button>
-                    </DialogClose>
-                    <DialogClose className="w-full">
-                      <Button
-                        variant="destructive"
-                        onClick={()=> handleCancelBooking({BookingId: booking.id})}
-                        className="w-full"
-                      >
-                        Confirmar
-                      </Button>
-                    </DialogClose>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            )}
+          {/* CANCELAR */}
+          {isConfirmed && (
+            <Dialog>
+              <DialogTrigger className="w-full">
+                <Button className="w-full" variant="destructive">
+                  Cancelar reserva
+                </Button>
+              </DialogTrigger>
+
+              <DialogContent className="w-[90%]">
+                <DialogHeader>
+                  <DialogTitle>
+                    Você deseja cancelar seu agendamento?
+                  </DialogTitle>
+                  <DialogDescription>
+                    Essa ação é irreversível.
+                  </DialogDescription>
+                </DialogHeader>
+
+                <DialogFooter className="flex flex-row gap-3">
+                  <DialogClose asChild>
+                    <Button variant="secondary" className="w-full">
+                      Voltar
+                    </Button>
+                  </DialogClose>
+
+                  <DialogClose className="w-full">
+                    <Button
+                      variant="destructive"
+                      onClick={() => handleCancelBooking({ BookingId: booking.id })}
+                      className="w-full"
+                    >
+                      Confirmar
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          )}
         </SheetFooter>
       </SheetContent>
     </Sheet>
